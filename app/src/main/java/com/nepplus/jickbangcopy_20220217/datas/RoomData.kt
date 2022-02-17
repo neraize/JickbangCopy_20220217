@@ -1,11 +1,24 @@
 package com.nepplus.jickbangcopy_20220217.datas
 
+import java.text.NumberFormat
+import java.util.*
+
 class RoomData(
     val price:Int,
     val address:String,
     val floor:Int,
     val description:String
 ) {
+
+    fun getFormattedPrice():String{
+
+        if(this.price <10000){
+            return NumberFormat.getNumberInstance(Locale.KOREA).format(this.price)
+        }
+        else{
+            return NumberFormat.getNumberInstance(Locale.KOREA).format(this.price) //임시
+        }
+    }
 
     fun getFormattedFloor():String{
 
