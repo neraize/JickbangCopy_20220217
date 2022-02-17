@@ -16,7 +16,10 @@ class RoomData(
             return NumberFormat.getNumberInstance(Locale.KOREA).format(this.price)
         }
         else{
-            return NumberFormat.getNumberInstance(Locale.KOREA).format(this.price) //임시
+            // 26500=> 2억6,500
+            val uk = this.price /10000      //억단위
+            val rest = this.price %10000    //천단위
+            return "${uk}억 ${NumberFormat.getNumberInstance(Locale.KOREA).format(rest)}"
         }
     }
 
